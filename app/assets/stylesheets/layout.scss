@@ -1,0 +1,185 @@
+/**
+  * General Site Layout
+  **/
+
+@import "helpers/colors";
+
+html {
+  // font-size: 62.5%; // now we can use font-size: 1.2 rem to get 12 px fonts!
+}
+
+$header-height: 100px;
+
+body {
+  background-color: $c-background;
+  font-size: 1.6rem;
+
+  font-family: 'Droid Sans';
+}
+
+.site-container {
+  background-color: $c-background;
+}
+
+.site {
+  width: 100%;
+  max-width: 1400px;
+  background-color: $c-site-background;
+  margin: 0 auto;
+}
+
+.siteheader {
+  background-color: $c-site-background;
+  height: $header-height;
+  display: flex;
+  vertical-align: middle;
+  line-height: $header-height;
+
+
+  .logo {
+    flex-basis: 1;
+    flex-grow: 1;
+
+    h1 {
+      font-size: 4.0rem;
+      text-align: center;
+    }
+  }
+
+  .navigation,
+  .usermenu {
+    $transition: 0.5s;
+
+    flex-basis: 1;
+    flex-grow: 1;
+
+
+    ul {
+      position: absolute;
+      top: $header-height;
+      left: 0;
+      bottom: 0;
+      z-index: 50;
+      visibility: hidden;
+      width: 100%;
+
+      transition: visiblity 0s, opacity $transition;
+      opacity: 0;
+      background-color: #000;
+      color: #fff;
+
+      li {
+        line-height: 1;
+      }
+
+    }
+
+    .burger {
+      padding: 10px;
+      color: #000;
+
+      transition: all $transition;
+      background-color: transparent;
+      cursor: pointer;
+      font-size: $header-height;
+    }
+  }
+
+  .usermenu {
+    text-align: right;
+
+    ul {
+      right: 0;
+    }
+  }
+
+  .navigation.active,
+  .usermenu.active {
+    ul {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .burger {
+      color: #fff;
+      background-color: #000;
+    }
+  }
+}
+
+.sitefooter {
+  background-color: $c-site-background;
+  height: 150px;
+}
+
+// TODO: EXTRACT
+
+
+// TODO: EXTRACT
+body {
+  background-image: image-url("background");
+  background-attachment: fixed;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.site-container {
+  margin-top: 500px;
+  position: relative;
+}
+.site {
+  position: relative;
+  top: -200px;
+}
+
+.content {
+  .userinfo {
+    position: relative;
+    min-height: 150px;
+    padding: 10px;
+    
+    .photo {
+      padding: 10px;
+      background-color: $c-site-background;
+      transform: translate(0,-50%);
+      left: 10px;
+      position: absolute;
+    }
+
+    .name,
+    .follwers,
+    .metadata {
+      text-align: right;
+    }
+
+    .name {
+      position: absolute;
+      top: -4rem;
+      left: 300px;
+      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+      color: #fff;
+
+      font-size: 3rem;
+      font-family: 'Droid Sans serif';
+    }
+  }
+
+  .feed {
+    .thought {
+      border-top: 1px solid #efefef;
+      padding: 10px;
+
+      & + .thought {
+        margin-top: 20px;
+      }
+    }
+  }
+
+}
+
+.error {
+  background-color: rgba(255,0,0,0.5);
+  border-top: 1px solid #f00;
+  border-bottom: 1px solid #f00;
+}

@@ -1,0 +1,111 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  font-url('icomoon.eot?yy92ck');
+  src:  font-url('icomoon.eot?yy92ck#iefix') format('embedded-opentype'),
+          font-url('icomoon.ttf?yy92ck') format('truetype'),
+          font-url('icomoon.woff?yy92ck') format('woff'),
+          font-url('icomoon.svg?yy92ck#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-shower:before {
+  content: "\f2cc";
+}
+.icon-drivers-license-o:before {
+  content: "\f2c3";
+}
+.icon-id-card-o:before {
+  content: "\f2c3";
+}
+.icon-toggle-on:before {
+  content: "\f205";
+}
+.icon-toggle-off:before {
+  content: "\f204";
+}
+.icon-paint-brush:before {
+  content: "\f1fc";
+}
+.icon-wechat:before {
+  content: "\f1d7";
+}
+.icon-weixin:before {
+  content: "\f1d7";
+}
+.icon-dot-circle-o:before {
+  content: "\f192";
+}
+.icon-circle-o:before {
+  content: "\f10c";
+}
+.icon-group:before {
+  content: "\f0c0";
+}
+.icon-users:before {
+  content: "\f0c0";
+}
+.icon-square-o:before {
+  content: "\f096";
+}
+.icon-check-square-o:before {
+  content: "\f046";
+}
+.icon-share-square-o:before {
+  content: "\f045";
+}
+.icon-edit:before {
+  content: "\f044";
+}
+.icon-pencil-square-o:before {
+  content: "\f044";
+}
+.icon-pencil:before {
+  content: "\f040";
+}
+.icon-align-justify:before {
+  content: "\f039";
+}
+.icon-home:before {
+  content: "\f015";
+}
+.icon-trash-o:before {
+  content: "\f014";
+}
+.icon-cog:before {
+  content: "\f013";
+}
+.icon-gear:before {
+  content: "\f013";
+}
+.icon-power-off:before {
+  content: "\f011";
+}
+.icon-user:before {
+  content: "\f007";
+}
+.icon-search:before {
+  content: "\f002";
+}
+.icon-plus:before {
+  content: "\f067";
+}
+.icon-spinner:before {
+  content: "\e982";
+}
+

@@ -12,5 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require layout/layout
+//= require layout/navigation
 //= require turbolinks
 //= require_tree .
