@@ -15,26 +15,33 @@ class ThinkersController < ApplicationController
   end
 
   def edit
-    @thinker = Thinker.find_by(name: params[:id])
+    if session[:current_user] == params[:id]
+      @thinker = Thinker.find_by name: params[:id]
+    else
+      redirect_to root_path
+    end
   end
 
   def create
     @thinker = Thinker.new(params.require(:thinker).permit(:name, :email, :password, :password_confirmations))
 
     if @thinker.save
-      render thinker_path
+      render thinker_path(@thinker.name)
     else
       render 'new'
     end
   end
 
   def update
-    @article = Thinker.find(params[:id])
-
-    if @article.update(article_params)
-      redirect_to @article
+    @thinker = Thinker.find_by name: params[:id]
+    if session[:current_user] == @thinker.name
+      if @thinker.update params.require(:thinker).permit(:email, :age, :city, :profession)
+        redirect_to thinker_path
+      else
+        render 'edit'
+      end
     else
-      render 'edit'
+      redirect_to login_path
     end
   end
 

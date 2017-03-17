@@ -1,8 +1,4 @@
-<%= form_for(:thinker, method: :put) do |f| %>
-    <div>
-      <%= f.label(:name, 'Username:') %>
-      <%= f.text_field(:name) %>
-    </div>
+<%= form_for(:thinker, url: thinker_path, method: :put) do |f| %>
 
     <div>
       <%= f.label(:email, 'Email: ') %>

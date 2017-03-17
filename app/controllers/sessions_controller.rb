@@ -8,12 +8,12 @@ class SessionsController < ApplicationController
     # LOGIN
     @thinker = Thinker.find_by(name: params[:session].require(:name)).try(:authenticate, params[:session].require(:password))
     if @thinker
-      session[:current_user] = @thinker.id
-      @current_user = @thinker.id
+      session[:current_user] = @thinker.name
+      @current_user = @thinker.name
       puts '################ LOGGED '
-      redirect_to(thinker_path(@thinker.name))
+      redirect_to thinker_path @thinker.name
     else
-      puts '########### Not logged '
+      render 'login'
     end
   end
 
