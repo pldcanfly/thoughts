@@ -19,11 +19,11 @@
     <% unless session[:current_user].nil? %>
         <span class="usermenu-opener burger icon-user"></span>
         <ul>
-          <li><%= render 'partials/logout' %></li>
+          <li><%= render 'sessions/logout' %></li>
           <li><%= link_to 'Edit Profile', edit_thinker_path(session[:current_user]) %></li>
         </ul>
     <% else %>
-        <%= render 'partials/login' %>
+        <%= render 'sessions/login' %>
     <% end %>
   </nav>
 </header>

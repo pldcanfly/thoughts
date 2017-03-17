@@ -1,7 +1,8 @@
+<% if thinker = get_thinker_by_id(thought.author) %>
 <article class="thought">
   <div class="text"><%= thought.text %></div>
   <div class="metadata">
-    <span><%= thought.author %></span>
+    <span><%= thinker .name %></span>
     <span class="actions">
       <span class="button">Love</span>
       <span class="button rethink">Rethink</span>
@@ -9,3 +10,4 @@
     </span>
   </div>
 </article>
+<% end %>

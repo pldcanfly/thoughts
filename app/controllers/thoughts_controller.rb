@@ -1,14 +1,15 @@
 class ThoughtsController < ApplicationController
+  include ThinkersHelper
+
   def index
-    @thoughts = Thought.where(author: get_author_id(params[:thinker_id])).all # TODO: Batch processing
-    # TODO: SET AUTHOR NAME
-    # @thoughts = Thought.all
+    @thinker = get_thinker_by_name(params[:thinker_id])
+    @thoughts = Thought.where(author: @thinker.id).all # TODO: Batch processing
   end
 
   def create
     if session[:current_user]
       @thought = Thought.new params.require(:thought).permit(:text)
-      @thought.author = get_author_id(params[:thinker_id])
+      @thought.author = get_thinker_by_name(params[:thinker_id]).id
       @thought.likes = 0
 
       if @thought.save
@@ -27,18 +28,6 @@ class ThoughtsController < ApplicationController
 
   def show
 
-  end
-
-  private
-
-  def get_author_id(name)
-    @author = Thinker.find_by(name: name)
-    return @author.id
-  end
-
-  def get_author_name(id)
-    @author = Thinker.find(id)
-    return @author.name
   end
 
 end

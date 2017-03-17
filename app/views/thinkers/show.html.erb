@@ -1,2 +1,4 @@
-<%= render "partials/userinfo-block", locals: { thinker: @thinker }%>
-<%= render "partials/thought-listing" %>
+<%= render "userinfo-block", locals: {thinker: @thinker} %>
+<div class="feed">
+  <%= render @thoughts %>
+</div>

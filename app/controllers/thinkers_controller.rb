@@ -1,13 +1,16 @@
 class ThinkersController < ApplicationController
+  include ThinkersHelper
+
   def index
     @thinkers = Thinker.all
   end
 
   def show
-    @thinker = Thinker.find_by(name: params[:id])
+    @thinker = get_thinker_by_name params[:id]
     if @thinker.nil?
       redirect_to root_path;
     end
+    @thoughts = Thought.all
   end
 
   def new
@@ -16,7 +19,7 @@ class ThinkersController < ApplicationController
 
   def edit
     if session[:current_user] == params[:id]
-      @thinker = Thinker.find_by name: params[:id]
+      @thinker = get_thinker_by_name params[:id]
     else
       redirect_to root_path
     end
