@@ -4,8 +4,8 @@
     <title>Thoughts</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag    'https://fonts.googleapis.com/css?family=Droid+Sans|Droid+Serif' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Droid+Sans|Droid+Serif' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <%= yield :head %>
@@ -14,17 +14,19 @@
   <body class="noscript">
   <%= yield :body_start %>
 
-    <%= render "partials/siteheader" %>
+  <%= render "partials/siteheader" %>
 
-    <div class="site-container">
-      <div class="site">
+  <div class="site-container">
+    <div class="site">
+      <div class="content">
         <%= yield %>
       </div>
     </div>
+  </div>
 
 
   <%= render "partials/sitefooter" %>
 
-    <%= yield :body_end %>
+  <%= yield :body_end %>
   </body>
 </html>

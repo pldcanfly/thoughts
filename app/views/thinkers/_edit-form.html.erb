@@ -1,0 +1,30 @@
+<%= form_for(:thinker, method: :put) do |f| %>
+    <div>
+      <%= f.label(:name, 'Username:') %>
+      <%= f.text_field(:name) %>
+    </div>
+
+    <div>
+      <%= f.label(:email, 'Email: ') %>
+      <%= f.email_field(:email) %>
+    </div>
+
+    <div>
+      <%= f.label(:age, 'Age: ') %>
+      <%= f.number_field(:age) %>
+    </div>
+
+    <div>
+      <%= f.label(:city, 'City: ') %>
+      <%= f.text_field(:city) %>
+    </div>
+
+    <div>
+      <%= f.label(:profession, 'Profession: ') %>
+      <%= f.text_field(:profession) %>
+    </div>
+
+    <div>
+      <%= f.submit('Save', class: 'button') %>
+    </div>
+<% end %>

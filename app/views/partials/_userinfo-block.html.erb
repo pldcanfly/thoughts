@@ -2,7 +2,7 @@
   <div class="photo">
     <%= image_tag("david-tennant", :alt => "David Tennant") %>
   </div>
-  <div class="name">@The_Doctor</div>
-  <div class="metadata">36, Timelord, Tardis</div>
+  <div class="name"><%= @thinker.name %></div>
+  <div class="metadata"><%= "#{@thinker.name}, " %><%= "#{@thinker.name}, " %><%= "#{@thinker.name}, " %></div>
   <div class="follwers">100k Followers, 100k Thoughts</div>
 </div>

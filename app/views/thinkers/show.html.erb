@@ -1,5 +1,2 @@
-<h2>Thinkers</h2>
-
-<% @thinkers.each do |thinker| %>
-    <div><%= thinker.name %> - <%= thinker.email %></div>
-<% end %>
+<%= render "partials/userinfo-block", locals: { thinker: @thinker }%>
+<%= render "partials/thought-listing" %>

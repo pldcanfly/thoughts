@@ -11,15 +11,20 @@
     </ul>
   </nav>
 
-    <div class="logo">
-      <h1><span class="icon-shower"></span> Thoughts</h1>
-    </div>
+  <div class="logo">
+    <h1><span class="icon-shower"></span> Thoughts</h1>
+  </div>
 
   <nav class="usermenu">
+    <% unless session[:current_user].nil? %>
+        <%= render 'partials/logout' %>
+    <% else %>
+        <%= render 'partials/login' %>
+    <% end %>
     <span class="usermenu-opener burger icon-user"></span>
     <ul>
-      <li>Profile</li>
-      <li>Logout</li>
+      <li>LOGIN</li>
+      <li>Register</li>
     </ul>
   </nav>
 </header>

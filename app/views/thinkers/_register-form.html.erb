@@ -1,0 +1,35 @@
+<% if @thinker.errors.any? %>
+    <div class="error">
+      <ul>
+        <% @thinker.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
+
+<%= form_for(@thinker, url: thinkers_path) do |f| %>
+    <div>
+      <%= f.label(:name, 'Username:') %>
+      <%= f.text_field(:name) %>
+    </div>
+
+    <div>
+      <%= f.label(:email, 'Email: ') %>
+      <%= f.email_field(:email) %>
+    </div>
+
+    <div>
+      <%= f.label(:password, 'Password: ') %>
+      <%= f.password_field(:password) %>
+    </div>
+
+    <div>
+      <%= f.label(:password_confirmation, 'Repeat Password: ') %>
+      <%= f.password_field(:password_confirmation) %>
+    </div>
+
+    <div>
+      <%= f.submit('Register', class: 'button register') %>
+    </div>
+<% end %>
