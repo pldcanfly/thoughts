@@ -3,11 +3,14 @@
       <div class="metadata">
         <span><%= thinker.name %></span> -
         <span><%= thought.created_at.to_formatted_s(:short) %></span>
+        <% if current_user_id? == thought.author %>-
+            <span><%= link_to 'Edit', edit_thinker_thought_path(thinker.name, thought.id) %></span>
+        <% end %>
       </div>
       <div class="text"><%= thought.text %></div>
       <div class="actions">
         <%= render 'partials/button', text: "Love (#{thought.likes})", clazz: 'love', icon: 'heart-o' %>
-        <%= render 'partials/button', text: "Rethink", icon: 'lightbulb-o' %>
+        <%= render 'partials/button', text: 'Rethink', icon: 'lightbulb-o' %>
       </div>
     </article>
 <% end %>

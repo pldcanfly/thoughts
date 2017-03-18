@@ -22,12 +22,30 @@ class ThoughtsController < ApplicationController
      end
   end
 
+  def update
+    if is_logged_in?
+      @thought = Thought.find(params[:id])
+      @thought.text = params[:thought][:text]
+      if @thought.save
+        redirect_to thinker_thought_path(@thought.id)
+      else
+        render 'edit'
+      end
+    else
+      redirect_to root_path
+    end
+  end
+
   def new
     @thought = Thought.new
   end
 
-  def show
+  def edit
+    @thought = Thought.find params[:id]
+  end
 
+  def show
+    @thought = Thought.find params[:id]
   end
 
 end

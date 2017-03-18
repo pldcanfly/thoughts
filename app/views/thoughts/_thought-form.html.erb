@@ -1,0 +1,10 @@
+<% if defined? @thought.errors %>
+    <%= render 'partials/errors', errors: @thought.errors %>
+<% end %>
+
+<%= form_for @thought,  url: thinker_thoughts_path do |f| %>
+    <%= f.label(:text, 'Your Thought: ') %>
+    <%= f.text_area(:text) %>
+
+    <%= f.submit 'Think', class: 'button' %>
+<% end %>
