@@ -2,7 +2,9 @@
   <nav class="navigation">
     <span class="navigation-opener burger icon-align-justify"></span>
     <ul>
-      <li>New Thought</li>
+      <% if is_logged_in? %>
+          <li><%= link_to('New Thought', new_thinker_thought_path(session[:current_user])) %></li>
+      <% end %>
       <li>Messages</li>
       <li>Recommendations</li>
       <li>Recommendations</li>
@@ -12,11 +14,11 @@
   </nav>
 
   <div class="logo">
-    <h1><span class="icon-shower"></span> Thoughts</h1>
+    <h1><%= link_to '<span class="icon-shower"></span> Thoughts'.html_safe, root_path %></h1>
   </div>
 
   <nav class="usermenu">
-    <% unless session[:current_user].nil? %>
+    <% if is_logged_in? %>
         <span class="usermenu-opener burger icon-user"></span>
         <ul>
           <li><%= render 'sessions/logout' %></li>

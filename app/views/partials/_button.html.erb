@@ -1,0 +1,15 @@
+<%#
+    usage:
+      - render 'partial/button', locals: { icon: 'icon-lightbulb-o', text: 'Rethink' }
+      - render 'partial/button', locals: { text: 'Rethink' }
+      - optional: add clazz: 'asdf' for a custom class
+%>
+
+<% if defined? text %>
+    <span class="button<%= " #{clazz}" if defined? clazz %>">
+      <% if defined? icon %>
+        <span class="icon icon-<%= icon %>"></span>
+      <% end %>
+      <span class="text"><%= text %></span>
+    </span>
+<% end %>

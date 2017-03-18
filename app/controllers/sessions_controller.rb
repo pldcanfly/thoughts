@@ -10,16 +10,11 @@ class SessionsController < ApplicationController
     if @thinker
       session[:current_user] = @thinker.name
       @current_user = @thinker.name
-      puts '################ LOGGED '
       redirect_to thinker_path @thinker.name
     else
       render 'login'
     end
   end
-
-
-  # @current_user =  session[:current_user]
-
 
   def destroy
     reset_session

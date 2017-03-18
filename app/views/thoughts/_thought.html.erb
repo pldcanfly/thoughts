@@ -1,13 +1,13 @@
 <% if thinker = get_thinker_by_id(thought.author) %>
-<article class="thought">
-  <div class="text"><%= thought.text %></div>
-  <div class="metadata">
-    <span><%= thinker .name %></span>
-    <span class="actions">
-      <span class="button">Love</span>
-      <span class="button rethink">Rethink</span>
-      <span class="button talk">Talk</span>
-    </span>
-  </div>
-</article>
+    <article class="thought">
+      <div class="metadata">
+        <span><%= thinker.name %></span> -
+        <span><%= thought.created_at.to_formatted_s(:short) %></span>
+      </div>
+      <div class="text"><%= thought.text %></div>
+      <div class="actions">
+        <%= render 'partials/button', text: "Love (#{thought.likes})", clazz: 'love', icon: 'heart-o' %>
+        <%= render 'partials/button', text: "Rethink", icon: 'lightbulb-o' %>
+      </div>
+    </article>
 <% end %>

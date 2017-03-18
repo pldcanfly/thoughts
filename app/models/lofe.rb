@@ -1,0 +1,2 @@
+class Lofe < ApplicationRecord
+end

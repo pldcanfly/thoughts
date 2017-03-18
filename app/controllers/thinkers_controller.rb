@@ -1,5 +1,6 @@
 class ThinkersController < ApplicationController
   include ThinkersHelper
+  include ThoughtsHelper
 
   def index
     @thinkers = Thinker.all
@@ -10,7 +11,8 @@ class ThinkersController < ApplicationController
     if @thinker.nil?
       redirect_to root_path;
     end
-    @thoughts = Thought.all
+    @thoughts = get_thoughts_for_thinker @thinker
+
   end
 
   def new
@@ -27,7 +29,7 @@ class ThinkersController < ApplicationController
 
   def create
     @thinker = Thinker.new(params.require(:thinker).permit(:name, :email, :password, :password_confirmations))
-
+      # TODO: NEEDS TO HAVE THE SAME PASSWORD!!
     if @thinker.save
       render thinker_path(@thinker.name)
     else

@@ -1,12 +1,4 @@
-<% if @thinker.errors.any? %>
-    <div class="error">
-      <ul>
-        <% @thinker.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-<% end %>
+<%= render 'partials/errors', errors: @thinker.errors %>
 
 <%= form_for(@thinker, url: thinkers_path) do |f| %>
     <div>

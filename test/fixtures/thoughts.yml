@@ -2,12 +2,12 @@
 
 one:
   text: MyString
-  author: 
+  author: 1
   likes: 1
-  parent: 1
+  parent: nil
 
 two:
   text: MyString
-  author: 
+  author: 5
   likes: 1
-  parent: 1
+  parent: nil

@@ -7,15 +7,15 @@ class ThoughtsController < ApplicationController
   end
 
   def create
-    if session[:current_user]
+    if is_logged_in?
       @thought = Thought.new params.require(:thought).permit(:text)
       @thought.author = get_thinker_by_name(params[:thinker_id]).id
       @thought.likes = 0
 
       if @thought.save
-        render thinker_path(session[:current_user])
+        redirect_to thinker_path(session[:current_user])
       else
-        render thinker_path(session[:current_user])
+        render 'new'
       end
     else
       redirect_to root_path
