@@ -1,0 +1,20 @@
+<% buttonclass = 'button love' %>
+<% lovecount = get_loves(thought.id) %>
+<% buttontext = "Love (#{lovecount})" %>
+
+<% if loves?(thought.id) %>
+    <% method = :delete %>
+    <% buttontext = '<span class="icon icon-heart"></span>' + buttontext %>
+<% else %>
+    <% method = :post %>
+
+    <% buttontext = '<span class="icon icon-heart-o"></span>' + buttontext %>
+<% end %>
+<div class="love-button" id="lovebutton-<%= thought.id %>">
+  <%= form_for thought, remote: true, url: love_path, method: method do |f| %>
+      <%= f.hidden_field(:thought_id, value: thought.id) %>
+      <%= f.button(type: "submit", class: buttonclass) do %>
+        <%= buttontext.html_safe %>
+      <% end %>
+  <% end %>
+</div>

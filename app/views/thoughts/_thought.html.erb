@@ -9,7 +9,8 @@
       </div>
       <div class="text"><%= thought.text %></div>
       <div class="actions">
-        <%= render 'partials/button', text: "Love (#{thought.likes})", clazz: 'love', icon: 'heart-o' %>
+        <%= render 'loves/love-button', thought: thought%>
+        <%# render 'partials/button', text: "Love (#{thought.likes})", clazz: 'love', icon: 'heart-o' %>
         <%= render 'partials/button', text: 'Rethink', icon: 'lightbulb-o' %>
       </div>
     </article>

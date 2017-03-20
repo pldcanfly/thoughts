@@ -10,6 +10,11 @@ Rails.application.routes.draw do
   #resources :followers, only: [ :create, :destroy ]
   post 'follow', to: 'followers#create'
   delete 'follow', to: 'followers#destroy'
+
+  get 'love', to: 'loves#index' # TODO: Temporary
+  post 'love', to: 'loves#create'
+  delete 'love', to: 'loves#destroy'
+
   get 'login', to: 'sessions#new'
   get 'logout', to: 'sessions#delete'
   post 'login', to: 'sessions#create'

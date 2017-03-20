@@ -20,4 +20,8 @@ module ThoughtsHelper
 
     return nil
   end
+
+  def get_thought(thought_id)
+    return Thought.find_by(id: thought_id)
+  end
 end
