@@ -1,17 +1,19 @@
 .button {
-  border: 1px solid #000;
   padding: 10px;
+  border: none;
   display: inline-block;
   text-align: center;
   color: #fff;
   background-color: #8ea9e6;
-  border-radius: 4px;
   cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
 
-  transition: background-color 0.5s, color 0.5s, border-radius 0.5s;
+  transition: background-color 0.5s, color 0.5s;
 
   .text,
-  .icon{
+  .icon {
     vertical-align: middle;
   }
 
@@ -24,9 +26,12 @@
 .button:hover {
   background-color: #c5d7ff;
   color: #000;
-  border-radius: 10px;
 }
 
 .button.love {
+  background-color: #d00;
+}
+
+.button.love:hover {
   background-color: #f00;
 }

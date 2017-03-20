@@ -9,8 +9,8 @@ module SessionsHelper
   end
 
   def current_user_id?
-    if @thinker = current_user?
-      return @thinker.id
+    if thinker = current_user?
+      return thinker.id
     end
 
     return false

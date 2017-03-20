@@ -1,8 +1,10 @@
 <div class="userinfo">
   <div class="photo">
-    <%= image_tag("david-tennant", :alt => "David Tennant") %>
+    <%= image_tag(get_profile_picture(@thinker.id)) %>
   </div>
   <div class="name"><%= @thinker.name %></div>
   <div class="metadata"><%= "#{@thinker.profession}, " %><%= "#{@thinker.age}, " %><%= "#{@thinker.city}, " %></div>
-  <div class="follwers">100k Followers, 100k Thoughts</div>
+  <div class="follwers">100k Followers, 100k Thoughts
+    <%= render 'followers/follow-button', thinker: @thinker %>
+  </div>
 </div>

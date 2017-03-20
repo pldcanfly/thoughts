@@ -1,5 +1,3 @@
-<h2>Thinker Listing</h2>
+SEARCH FORM
 
-<% @thinkers.each do |thinker| %>
-    <div><%= link_to("#{thinker.name}", thinker_path(thinker.name)) %></div>
-<% end %>
+<%= render @thinkers %>

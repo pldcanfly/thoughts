@@ -1,17 +1,23 @@
 class ThinkersController < ApplicationController
   include ThinkersHelper
   include ThoughtsHelper
+  include FollowersHelper
 
   def index
-    @thinkers = Thinker.all
+    @thinkers = get_some_friends_for(current_user_id?)
   end
 
   def show
     @thinker = get_thinker_by_name params[:id]
+
+    @follow = follows?(@thinker.id)
+
     if @thinker.nil?
       redirect_to root_path;
     end
+
     @thoughts = get_thoughts_for_thinker @thinker
+
 
   end
 

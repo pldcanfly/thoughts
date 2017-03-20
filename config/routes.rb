@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   resources :thinkers, path_names: { new: 'register' } do
     resources :thoughts, path_names: { new: 'new' } # TODO: ADD EXCEPT INDEX
   end
+
+  #resources :followers, only: [ :create, :destroy ]
+  post 'follow', to: 'followers#create'
+  delete 'follow', to: 'followers#destroy'
   get 'login', to: 'sessions#new'
   get 'logout', to: 'sessions#delete'
   post 'login', to: 'sessions#create'

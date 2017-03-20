@@ -1,0 +1,17 @@
+<% if thinker.id != current_user_id? %>
+    <% unless follows?(thinker.id) %>
+        <% buttontext = 'Follow' %>
+        <% buttonclass = 'button' %>
+        <% method = :post %>
+    <% else %>
+        <% buttontext = 'Following' %>
+        <% buttonclass = 'button' %>
+        <% method = :delete %>
+    <% end %>
+    <div class="follow_button" id="button-<%= thinker.id %>">
+      <%= form_for thinker, remote: true, url: follow_path, method: method do |f| %>
+          <%= f.hidden_field(:thinker_id, value: thinker.id) %>
+          <%= f.submit(buttontext, class: buttonclass) %>
+      <% end %>
+    </div>
+<% end %>

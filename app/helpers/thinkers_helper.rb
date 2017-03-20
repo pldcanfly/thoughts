@@ -5,17 +5,25 @@ module ThinkersHelper
 
   def get_thinker_by_name(name)
     if Thinker.exists? name: name
-      @thinker = Thinker.find_by name: name
+      return Thinker.find_by name: name
     else
       return false
     end
   end
 
+  def get_some_friends_for(thinker_id, number = 10)
+    return Thinker.order("RANDOM()").where.not('id': thinker_id).limit(number)
+  end
+
   def get_thinker_by_id(id)
     if Thinker.exists? id
-      @thinker = Thinker.find id
+      return Thinker.find id
     else
       return false
     end
+  end
+
+  def get_profile_picture(thinker_id)
+    return "david-tennant"
   end
 end
